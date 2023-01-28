@@ -1,0 +1,33 @@
+service: farmfresh-backend
+configValidationMode: error
+frameworkVersion: '3'
+
+useDotenv: true
+
+custom:
+  profiles:
+    dev: personal-aws
+  stage: ${sls:stage}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      scripts:
+        - npx prisma generate
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  api:
+    handler: handler.handler
+    events:
+      - httpApi: '*'
+
+# Serverless plugins
+plugins:
+  - serverless-webpack
+  - serverless-webpack-prisma
+  - serverless-offline

@@ -1,0 +1,13 @@
+node_modules
+.serverless
+
+.DS_Store
+src/.DS_Store
+
+.build
+
+.env
+
+.webpack
+.eslintignore
+.serverless
