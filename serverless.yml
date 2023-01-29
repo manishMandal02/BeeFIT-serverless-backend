@@ -19,12 +19,40 @@ custom:
 provider:
   name: aws
   runtime: nodejs14.x
+  region: ap-south-1
+  profile: ${self:custom.profiles.${sls:stage}}
 
+# Lambda functions
 functions:
-  api:
-    handler: handler.handler
+  authHandler:
+    handler: src/api/auth/index.handler
+    timeout: 10
     events:
-      - httpApi: '*'
+      - http:
+          path: /api/auth/{proxy+}
+          method: ANY
+          cors:
+            origins:
+              - https://farmfresh.vercel.app
+            allowCredentials: true
+    environment:
+      DATABASE_URL: ${env:DATABASE_URL}
+      JWT_SECRET: ${env:JWT_SECRET}
+
+  goalsHandler:
+    handler: src/api/goals/index.handler
+    timeout: 10
+    events:
+      - http:
+          path: /api/auth/{proxy+}
+          method: ANY
+          cors:
+            origins:
+              - https://farmfresh.vercel.app
+            allowCredentials: true
+    environment:
+      DATABASE_URL: ${env:DATABASE_URL}
+      JWT_SECRET: ${env:JWT_SECRET}
 
 # Serverless plugins
 plugins:

@@ -1,5 +1,5 @@
 {
-  "name": "farmfresh-backend",
+  "name": "beefit-backend",
   "version": "1.0.0",
   "description": "Backend for FarmFresh - A platform to connect farmers to the consumers.",
   "scripts": {
@@ -8,17 +8,21 @@
   "dependencies": {
     "@prisma/client": "^4.9.0",
     "axios": "^1.2.5",
+    "cloudinary": "^1.33.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
+    "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.1",
     "serverless-http": "^3.1.1"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.110",
     "@types/cookie-parser": "^1.4.3",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/multer": "^1.4.7",
     "@types/node": "^18.11.18",
     "@types/nodemailer": "^6.4.7",
     "prisma": "^4.9.0",
