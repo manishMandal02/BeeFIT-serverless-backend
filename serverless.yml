@@ -5,8 +5,8 @@ frameworkVersion: '3'
 useDotenv: true
 
 custom:
-  profiles:
-    dev: personal-aws
+  # profiles:
+  #   dev: personal-aws
   stage: ${sls:stage}
   webpack:
     webpackConfig: 'webpack.config.js'
@@ -20,7 +20,7 @@ provider:
   name: aws
   runtime: nodejs14.x
   region: ap-south-1
-  profile: ${self:custom.profiles.${sls:stage}}
+  # profile: ${self:custom.profiles.${sls:stage}}
 
 # Lambda functions
 functions:
