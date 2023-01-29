@@ -24,5 +24,7 @@ jobs:
         with:
           args: deploy --stage dev --region ap-south-1
         env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
           DATABASE_URL: ${env:DATABASE_URL}
           JWT_SECRET: ${env:JWT_SECRET}
