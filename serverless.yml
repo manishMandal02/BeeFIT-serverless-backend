@@ -1,4 +1,4 @@
-service: farmfresh-backend
+service: beeFit-backend
 configValidationMode: error
 frameworkVersion: '3'
 
@@ -44,7 +44,7 @@ functions:
     timeout: 10
     events:
       - http:
-          path: /api/auth/{proxy+}
+          path: /api/goals/{proxy+}
           method: ANY
           cors:
             origins:
